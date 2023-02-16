@@ -1,0 +1,102 @@
+Argus-3.0 is a derivative work of argus-2.0 and uses technology developed for libpcap tcpdump, tcp_wrappers-6.3, and GNU software.
+
+Thanks continue to go to the principle authors of these packages, Steve McCanne (mccanne@ee.lbl.gov), Craig Leres (leres@ee.lbl.gov), Van Jacobson (van@ee.lbl.gov) and Wietse Venema (wietse@wzv.win.tue.nl) for their exceptional work, without which, Argus would have had to do a lot more work.
+
+Along with the author contact information, we have included the copyrights and licensing terms that apply to the various components of Argus. Please refer to the individual packages, for specific use and redistribution limitations thsat may apply.
+
+Argus 3.0 
+argus@lists.andrew.cmu.edu
+
+Copyright (c) 2000 - 2011 QoSient, LLC 
+All rights reserved.
+
+Permission to use, copy, modify, and distribute this software and its documentation for any purpose and without fee is hereby granted, provided that the above copyright notice appear in all copies and that both that copyright notice and this permission notice appear in supporting documentation, and that the name of QoSient not be used in advertising or publicity pertaining to distribution of the software without specific, written prior permission.
+
+QOSIENT, LLC DISCLAIMS ALL WARRANTIES WITH REGARD TO THIS SOFTWARE, INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS, IN NO EVENT SHALL QOSIENT, LLC BE LIABLE FOR ANY SPECIAL, INDIRECT OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
+
+Argus 1.5
+Carnegie Mellon University
+argus@lists.andrew.cmu.edu
+
+Copyright (c) 1993, 1994, 1995 Carnegie Mellon University.
+All rights reserved.
+
+Permission to use, copy, modify, and distribute this software and its documentation for any purpose and without fee is hereby granted, provided that the above copyright notice appear in all copies and that both that copyright notice and this permission notice appear in supporting documentation, and that the name of CMU not be used in advertising or publicity pertaining to distribution of the software without specific, written prior permission.
+
+CMU DISCLAIMS ALL WARRANTIES WITH REGARD TO THIS SOFTWARE, INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS, IN NO EVENT SHALL CMU BE LIABLE FOR ANY SPECIAL, INDIRECT OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
+
+
+LIBPCAP 0.4
+Lawrence Berkeley National Laboratory
+Network Research Group
+libpcap@ee.lbl.gov
+ftp://ftp.ee.lbl.gov/libpcap.tar.Z
+- Steve McCanne (mccanne@ee.lbl.gov)
+- Craig Leres (leres@ee.lbl.gov)
+- Van Jacobson (van@ee.lbl.gov)
+
+TCPDUMP 3.4
+Lawrence Berkeley Laboratory
+Network Research Group
+tcpdump@ee.lbl.gov
+ftp://ftp.ee.lbl.gov/tcpdump-.tar.Z
+- Steve McCanne (mccanne@ee.lbl.gov)
+- Craig Leres (leres@ee.lbl.gov)
+- Van Jacobson (van@ee.lbl.gov)
+
+Copyright (c) 1993, 1994, 1995, 1996, 1997, 1998
+The Regents of the University of California.
+All rights reserved.
+
+Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
+
+    1. Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
+
+    2. Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.
+
+    3. All advertising materials mentioning features or use of this software must display the following acknowledgement:
+
+    This product includes software developed by the Computer Systems Engineering Group at Lawrence Berkeley Laboratory.
+
+    4. Neither the name of the University nor of the Laboratory may be used to endorse or promote products derived from this software without specific prior written permission.
+
+THIS SOFTWARE IS PROVIDED BY THE REGENTS AND CONTRIBUTORS ``AS IS'' AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE REGENTS OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.v /
+
+tcp_wrappers-7.6
+ftp://ftp.win.tue.nl/pub/security
+ftp://info.cert.org/pub/tools
+Wietse Venema (wietse@wzv.win.tue.nl)
+Department of Mathematics and Computing Science
+Eindhoven University of Technology
+P.O. Box 513
+5600 MB Eindhoven
+The Netherlands
+
+No copyright available.
+
+CMU libsasl
+Tim Martin
+Rob Earhart
+
+Copyright (c) 2000 Carnegie Mellon University. All rights reserved.
+
+Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
+
+    1. Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
+
+    2. Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.
+
+    3. The name "Carnegie Mellon University" must not be used to endorse or promote products derived from this software without prior written permission. For permission or any other legal details, please contact
+
+            Office of Technology Transfer
+            Carnegie Mellon University
+            5000 Forbes Avenue
+            Pittsburgh, PA 15213-3890
+            (412) 268-4387, fax: (412) 268-7395
+            tech-transfer@andrew.cmu.edu
+
+4. Redistributions of any form whatsoever must retain the following acknowledgment:
+
+    "This product includes software developed by Computing Services at Carnegie Mellon University (http://www.cmu.edu/computing/)."
+
+CARNEGIE MELLON UNIVERSITY DISCLAIMS ALL WARRANTIES WITH REGARD TO THIS SOFTWARE, INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS, IN NO EVENT SHALL CARNEGIE MELLON UNIVERSITY BE LIABLE FOR ANY SPECIAL, INDIRECT OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE. /

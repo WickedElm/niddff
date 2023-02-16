@@ -1,0 +1,45 @@
+documentation:
+  niddff: niddff/niddff:0.1
+
+setup_options:
+  dataset_name: demo_dataset
+  source_data: unsw-nb15-sample/source/pcaps
+  ground_truth_data: unsw-nb15/ground_truth/gt
+  clean_output_directory: True
+  expected_outputs:
+    - unsw_nb15_dataset.csv
+
+  argus:
+    clean: True
+    arguments: -S 60 -m
+    execute_ra: True
+
+step_acquire_source_data:
+  download: True
+
+###
+# The following items occur in a loop:
+# - step_feature_processing
+# - step_label_processing
+# - step_post_processing
+###
+
+step_feature_processing:
+  - run_zeek
+  - run_argus
+  - run_python_scripts {output_directory}/{source_file_name}.zeek.features.csv
+
+step_label_processing:
+  - run_python_scripts {output_directory}/{source_file_name}.zeek.features.csv
+
+step_post_processing:
+  - run_combine_features unsw_nb15_dataset.csv
+
+###
+# Final dataset processing which produces
+# all expected_outputs from setup_options section
+# Tasks such as combining all intermediate outputs would occur here.
+###
+
+step_final_dataset_processing:
+  - run_combine_data unsw_nb15_dataset.csv
