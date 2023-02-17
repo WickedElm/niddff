@@ -26,6 +26,46 @@ cd niddff
 docker run -it -v `pwd`:/niddff niddff:0.1  python ./src/create_dataset.py ./datasets/demo_dataset/config.yaml
 ```
 
+## Dataset Processing Overview
+
+## Configuration File Details
+
+### Sections Overview
+
+#### documentation
+
+#### setup_options
+
+#### step_acquire_source_data
+
+#### step_feature_processing
+
+#### step_label_processing
+
+#### step_post_processing
+
+#### step_final_dataset_processing
+
+### Command Line Overrides
+
+### Framework Variables
+
+## Dataset Directory Structure
+
+## Supported Tools
+
+### Zeek
+
+### Argus
+
+### Python
+
+## Creating a Dataset
+
+## Rebuilding a Dataset
+
+## Adding/Removing Features
+
 ## Rebuilding the niddff Container
 In order to re-build the niddff container one can perform the following steps:
 ```
