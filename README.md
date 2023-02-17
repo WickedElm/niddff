@@ -29,7 +29,6 @@ docker run -it -v `pwd`:/niddff niddff:0.1  python ./src/create_dataset.py ./dat
 ## Rebuilding the niddff Container
 In order to re-build the niddff container one can perform the following steps:
 ```
-# Assuming you are in the top-level directory of the repo
 # The Docker file supports the following arguments:
 # ZEEK_VERSION
 # ARGUS_VERSION
@@ -40,6 +39,7 @@ In order to re-build the niddff container one can perform the following steps:
 # NOTE:  If you are rebuilding the container to change tooling, please open a pull request
 #        or open an issue so we can collaborate to get it into a common container image.
 #
+# Assuming you are in the top-level directory of the repo
 cd ./containers/niddff/
 ./build.bash <tag> <any valid arguments to docker-build>
 ```
