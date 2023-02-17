@@ -13,15 +13,33 @@ docker pull wickedelm/niddff
 ## Getting Started
 We have a demo dataset included in the repository called "demo_datset" which can be used as a way to get familiar with using the framework.
 The demo dataset constructs a final dataset using a single PCAP from the UNSW-NB15 dataset as its source.
-The generate this dataset the following steps can be taken:
+To generate this dataset the following steps can be taken:
 
 ```
 # Change directories to the cloned repo
 cd niddff
 
-# Run the niddff container calling our script with the demo_dataset config.yaml file as input
+# Run the niddff container calling the framework's main script with the demo_dataset config.yaml file as input
 # - We map the repo directory to the /niddff volume in the container
 # - The container was generated to match user id / group id of 1000
 #   Follow the steps "Rebuilding the niddff Container" to change this if desired
 docker run -it -v `pwd`:/niddff niddff:0.1  python ./src/create_dataset.py ./datasets/demo_dataset/config.yaml
+```
+
+## Rebuilding the niddff Container
+In order to re-build the niddff container one can perform the following steps:
+```
+# Assuming you are in the top-level directory of the repo
+# The Docker file supports the following arguments:
+# ZEEK_VERSION
+# ARGUS_VERSION
+# PYTHON_VERSION
+# USER_ID
+# GROUP_ID
+#
+# NOTE:  If you are rebuilding the container to change tooling, please open a pull request
+#        or open an issue so we can collaborate to get it into a common container image.
+#
+cd ./containers/niddff/
+./build.bash <tag> <any valid arguments to docker-build>
 ```
