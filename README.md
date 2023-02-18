@@ -116,7 +116,14 @@ The intention of entries in this section is the perform any processing needed to
 In our example, we use this step to combine all of the intermediate files generated for each source file into a final single dataset file using the "run_combine_data" function.
 
 ### Command Line Overrides
+The framework uses the python hydra package for handling its configuration data.
+This makes all the options made available by hydra to override settings on the command line available to uses of the framework.
+For example to execute the framework without downloading source data one can run the following:
 
+```
+# Container arguments have been exluded for brevity
+python ./src/create_dataset.py ./datasets/demo_dataset/config.yaml step_acquire_source_data.download=False
+```
 ### Framework Variables
 
 ## Dataset Directory Structure
