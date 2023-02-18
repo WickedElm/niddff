@@ -116,8 +116,8 @@ The intention of entries in this section is the perform any processing needed to
 In our example, we use this step to combine all of the intermediate files generated for each source file into a final single dataset file using the "run_combine_data" function.
 
 ### Command Line Overrides
-The framework uses the python hydra package for handling its configuration data.
-This makes all the options made available by hydra to override settings on the command line available to uses of the framework.
+The framework uses the python omegaconf package for handling its configuration data.
+This makes all the options made available by omegaconf to override settings on the command line available to uses of the framework.
 For example to execute the framework without downloading source data one can run the following:
 
 ```
@@ -125,8 +125,38 @@ For example to execute the framework without downloading source data one can run
 python ./src/create_dataset.py ./datasets/demo_dataset/config.yaml step_acquire_source_data.download=False
 ```
 ### Framework Variables
+Within the YAML configuration file, users can reference previously declared items using the standard syntax supported by omegaconf.
+For example, if you wanted to reference the dataset_name declared in setup_options somewhere later in the file, you can use the syntax 
+
+```
+${setup_options.dataset_name}
+```
+
+In addition to this functionality, we provide our own variables that can be referenced within the configuration file with the actual values replaced at runtime.
+All of these variables consist of the format:
+
+```
+{variable name}
+``` 
+
+Below are the details regarding these variables:
+
+```
+{output_directory}
+At runtime this resolves to the path where all of a dataset's output data will be stored.
+This is generally ./dataseets/<dataset_name>/output
+
+{source_file}
+At runtime this resolves to the full path of the current source file being processed.
+
+{source_file_name}
+At runtime this resolves to just the name portion of the current source file being processed.
+``` 
 
 ## Dataset Directory Structure
+Each dataset contains a standard direcory structure as shown below:
+
+![Directory structure for a dataset.](./docs/dirsctructure.png)
 
 ## Supported Tools
 
