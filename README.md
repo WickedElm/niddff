@@ -27,6 +27,12 @@ docker run -it -v `pwd`:/niddff niddff:0.1  python ./src/create_dataset.py ./dat
 ```
 
 ## Dataset Processing Overview
+The dataset process consists of executing the ./src/create_dataset.py script with a required argument which is the path to the YAML file for a dataset along with any overrides for values within the config file.
+The create_dataset.py script reads in the YAML files and processes commands in a top down manner.
+For certain steps, we assume multiple large source files are being processed and so we process them separately and then combine them at the end of the script.
+The general algorithm we follow is represented below:
+
+![Algorithm for niddff processing.](./docs/algorithm.png)
 
 ## Configuration File Details
 
