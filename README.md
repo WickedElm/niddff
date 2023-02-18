@@ -158,11 +158,104 @@ Each dataset contains a standard direcory structure as shown below:
 
 ![Directory structure for a dataset.](./docs/dirsctructure.png)
 
+Below are the details of what is expected to be in each directory:
+
+```
+In the top level directory one will find the configuration yaml file.
+
+source/
+In the source directory it is expected that metadata for downloading source files would appear.
+After source files have been downloaded this is also where those files would appear.
+Note that many datasets would not have this directory populated if they are using source data from an external dataset.
+
+ground_truth/
+In the ground_truth directory it is expected that metadata for downloading ground truth files would appear.
+After the step_acquire_source_data has been performed any downloaded ground truth files would be in this directory.
+Note that many datasets would not have this directory populated if they are using ground truth data from an external dataset.
+
+output/
+This directory is empty by default and generally gets cleaned out between executions of the dataset creation.
+All output data including intermediary files and the final output files would be populated in this directory.
+It can be referenced in the YAML input file as {output_directory}.
+
+step_acquire_source_data/
+This directory contains any __load__.<tool> files and associated scripts that are used to acquire source data.
+
+step_feature_processing/
+This directory contains any __load__.<tool> files and associated scripts that are used during the feature processing step.
+
+step_label_processing/
+This directory contains any __load__.<tool> files and associated scripts that are used during the label processing step.
+
+step_post_processing/
+This directory contains any __load__.<tool> files and associated scripts that are used during the post processing step.
+
+step_final_dataset_processing/
+This directory contains any __load__.<tool> files and associated scripts that are used during the final dataset processing step.
+```
+
 ## Supported Tools
+Here we provide an overview of the support the framework provides for various tools.
+This is expected to grow in the future to meet the needs of more researchers.
 
 ### Zeek
+The framework comes with default support for using the zeek network analysis tool.
+In particular, we provide wrapper syntax in order to provide the ability to have custom features based on zeek's default conn.log processing architecture.
+In other words, we focus on generating flow-based features using zeek.
+To use this built in feature there are three main steps as outlined below:
+
+```
+1.  Generate a zeek script for a feature or label
+    - Follow the example scripts found in the ./datasets/demo_dataset/step_feature_processing directory
+    - Name script in the format <feature name>.zeek
+    - Place script in ./dataset/<dataset name>/step_feature_processing directory for features
+    - Place script in ./dataset/<dataset name>/step_label_processing directory for labeling
+
+2.  Create or update a __load__.zeek file
+    - Add the following to a line in the file:
+
+        @load ./<script_name>
+
+    - Do not include the .zeek file extension
+      
+    - Place file in ./dataset/<dataset name>/step_feature_processing directory for features
+    - Place file in ./dataset/<dataset name>/step_label_processing directory for labeling
+
+3.  Add the run_zeek instruction to the proper section of the YAML configuration file
+    - No arguments are needed for this instruction
+```
+
+If the default setup for using zeek does not meet your needs, you can also simply add zeek calls to your YAML file to use the tool directly.
 
 ### Argus
+The framework comes with default support for using the argus network analysis tool and its ra client tool.
+There are several simple steps that can be performed to take advantage of the argus functionality:
+
+```
+1.  Create an argus entry in the setup_options portion of the YAML file
+
+  EX:
+
+  argus:
+    clean: True
+    arguments: -S 60 -m
+    execute_ra: True
+
+  clean:      Indicates to remove any .argus files before running argus
+  arguments:  Include any command lines options that the argus CLI accepts 
+  execute_ra: Indicates if the ra client should be ran after executing argus
+
+2.  Create or update a __load__.argus file.
+    - Each line in this file is an option accepted by the "-s" parameter of the ra client tool
+    - See man ra for additional details for valid values
+    - Place file in ./dataset/<dataset name>/step_feature_processing directory for features
+    - Place file in ./dataset/<dataset name>/step_label_processing directory for labeling
+
+3.  Add the run_argus instruction to the proper section of the YAML configuration file
+    - No arguments are needed for this instruction
+```
+
+Similar to our zeek support, if the default support does not meet your needs, you can also simply add argus and ra calls to your YAML file to use the tool directly.
 
 ### Python
 
