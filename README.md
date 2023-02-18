@@ -35,6 +35,8 @@ The general algorithm we follow is represented below:
 ![Algorithm for niddff processing.](./docs/algorithm.png)
 
 ## Configuration File Details
+One can review the demo dataset file below and conained in ./datasets/demo_dataset/config.yaml in this repository to get familiar with its contents and section.
+![Sample configuration yaml file.](./docs/yamlfile.png)
 
 ### Sections Overview
 
