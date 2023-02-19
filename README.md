@@ -311,6 +311,7 @@ There are several broad steps needed to create a new dataset:
     
         docker run --rm -it -v `pwd`:/niddff niddff:0.1 ./scripts/create_dataset_template <dataset name> 
         - This command creates an empty directory structure with template files in ./datasets/<dataset name>
+        - NOTE:  This will recursively remove the ./datasets/<dataset name> directory if it exists.
 
 2.  Fill out YAML configuration file.
 
