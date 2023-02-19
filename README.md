@@ -258,6 +258,40 @@ There are several simple steps that can be performed to take advantage of the ar
 Similar to our zeek support, if the default support does not meet your needs, you can also simply add argus and ra calls to your YAML file to use the tool directly.
 
 ### Python
+Similar to the default support for zeek and argus, the framework provides support for python scripting in a similar manner:
+
+```
+1.  Create or update a __load__.python file.
+    - Each line in this file refers to a python script in the same directory without the .py extension.
+    - Place file in ./dataset/<dataset name>/step_feature_processing directory for features
+    - Place file in ./dataset/<dataset name>/step_label_processing directory for labeling
+
+2.  Create corresponding python script.
+    - Use the same name as the entry in __load__.python
+    - Scripts called with the framework get are provided with the following four arguments:
+
+    working_directory (arg1)
+    - The output directory where intermediary files and all output files should be stored.
+
+    source_file_name (arg2)
+    - The name of the current source file being processed.
+
+    data_file (arg3)
+    - This is provided as part of the call to run_python_scripts and specified in the YAML file.
+    - It is intended to be the data file to be processed by the script but there are no restrictions on what is passed here.
+
+    ground_truth_file (arg4)
+    - The path to the ground truth file (if present).
+    - If no ground truth is specified then this is provided with /dev/null
+
+3.  Add the run_python_scripts instruction to the proper section of the YAML configuration file.
+    - This takes one argument which is the data file to be processed
+    - EX:
+
+        run_python_scripts {output_directory}/{source_file_name}.zeek.features.csv
+```
+
+Similar to other built-in support, users can call arbitrary python scripts by specifying the commands and arguments needed in the YAML configuration file.
 
 ## Creating a Dataset
 
