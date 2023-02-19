@@ -23,7 +23,7 @@ cd niddff
 # - We map the repo directory to the /niddff volume in the container
 # - The container was generated to match user id / group id of 1000
 #   Follow the steps "Rebuilding the niddff Container" to change this if desired
-docker run -it -v `pwd`:/niddff niddff:0.1  python ./src/create_dataset.py ./datasets/demo_dataset/config.yaml
+docker run --rm -it -v `pwd`:/niddff niddff:0.1  python ./src/create_dataset.py ./datasets/demo_dataset/config.yaml
 ```
 
 ## Dataset Processing Overview
@@ -293,11 +293,40 @@ Similar to the default support for zeek and argus, the framework provides suppor
 
 Similar to other built-in support, users can call arbitrary python scripts by specifying the commands and arguments needed in the YAML configuration file.
 
-## Creating a Dataset
-
 ## Rebuilding a Dataset
+Rebuilding a dataset an existing dataset from source is relatively straightforward:
 
-## Adding/Removing Features
+```
+docker run --rm -it -v `pwd`:/niddff niddff:0.1  python ./src/create_dataset.py ./datasets/<dataset name>/<configuration file name>.yaml
+```
+
+After the dataset processing is complete, one should expect the output to be in the ./datasets/<dataset name>/output directory.
+If a datset is not part of the default framework repository, simply pull down the dataset from its repo and put the dataset directory into the ./datasets/ directory.
+
+## Creating a Dataset
+There are several broad steps needed to create a new dataset:
+
+```
+1.  Create the default directory structure
+    
+        docker run --rm -it -v `pwd`:/niddff niddff:0.1 ./scripts/create_dataset_template <dataset name> 
+        - This command creates an empty directory structure with template files in ./datasets/<dataset name>
+
+2.  Fill out YAML configuration file.
+
+3.  Implement any processing scripts needed.
+```
+
+Note that it is expected that steps 2 and 3 would likely be done iteratively together.
+
+## Adding/Removing/Exchanging Features
+For a given dataset, the process of adding a feature generally involves creating a script in the step_feature_processing directory and then adding its reference to the appropriate __load__.<tool> file.
+
+To remove a feature, one can simply remove its entry from the __load__.<tool> file.
+To be complete the associated script may want to be removed as well though it is not necessary.
+
+If a feature has already been created using the standard supported tools and source data one can simply copy in the appropriate script and add its reference to the appropriate __load__.<tool> file.
+Note that it is possible to exchange features that were not generated from the same source file provided the scripts do not contain anything specific to that source dataset in them.
 
 ## Rebuilding the niddff Container
 In order to re-build the niddff container one can perform the following steps:
