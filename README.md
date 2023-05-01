@@ -10,6 +10,19 @@ git clone git@github.com:WickedElm/niddff.git
 docker pull wickedelm/niddff
 ```
 
+The most recent version of the container consists of the following software versions:
+```
+Ubuntu    20.04
+Zeek      4.2.1
+Argus     3.0.8.2
+ra        3.0.8.2
+python    3.8.10
+scapy     2.5.0
+pandas    1.4.3
+requests  2.28.1
+omegaconf 2.2.2
+```
+
 ## Getting Started
 We have a demo dataset included in the repository called "demo_datset" which can be used as a way to get familiar with using the framework.
 The demo dataset constructs a final dataset using a single PCAP from the UNSW-NB15 dataset as its source.
